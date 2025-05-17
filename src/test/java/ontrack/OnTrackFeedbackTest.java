@@ -19,10 +19,19 @@ public class OnTrackFeedbackTest {
     public void testFeedbackNotFound() {
         assertEquals("Not Found", OnTrackFeedback.getFeedbackStatus("task999"));
     }
-
-    // ❌ Intentionally failing test for CI demonstration
     @Test
-    public void testForceFail() {
-        assertEquals("Given", OnTrackFeedback.getFeedbackStatus("task999"));  // Will fail
+    public void testFeedbackEmptyInput() {
+        assertEquals("Not Found", OnTrackFeedback.getFeedbackStatus(""));
     }
+
+    @Test
+    public void testFeedbackNullInput() {
+        assertEquals("Not Found", OnTrackFeedback.getFeedbackStatus(null));
+    }
+
+    @Test
+    public void testFeedbackWithSpaces() {
+        assertEquals("Not Found", OnTrackFeedback.getFeedbackStatus(" task001 "));
+    }
+
 }
